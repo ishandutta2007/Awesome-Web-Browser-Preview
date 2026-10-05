@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 350" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#311042"/>
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="350" rx="16" fill="url(#bgGrad)"/>
+
+  <!-- Dynamic / Animated-like Background Graphics (Behind text foreground) -->
+  <g opacity="0.25">
+    <!-- Pulsing Orbs -->
+    <circle cx="150" cy="100" r="80" fill="#38bdf8">
+      <animate attributeName="r" values="70;90;70" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.2;0.4;0.2" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1050" cy="250" r="100" fill="#c084fc">
+      <animate attributeName="r" values="90;110;90" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.25;0.45;0.25" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="850" cy="80" r="60" fill="#818cf8">
+      <animate attributeName="cy" values="70;90;70" dur="6s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Grid / Wave lines -->
+    <path d="M 0,280 Q 300,200 600,280 T 1200,280 L 1200,350 L 0,350 Z" fill="#818cf8" opacity="0.15">
+      <animate attributeName="d" values="M 0,280 Q 300,200 600,280 T 1200,280 L 1200,350 L 0,350 Z; M 0,260 Q 300,300 600,240 T 1200,260 L 1200,350 L 0,350 Z; M 0,280 Q 300,200 600,280 T 1200,280 L 1200,350 L 0,350 Z" dur="8s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Foreground Content (Clear & High Contrast) -->
+  <g transform="translate(600, 140)" text-anchor="middle">
+    <!-- Browser Icon Representation -->
+    <circle cx="0" cy="-65" r="30" fill="none" stroke="url(#textGrad)" stroke-width="4" filter="url(#glow)"/>
+    <circle cx="0" cy="-65" r="12" fill="#38bdf8"/>
+    
+    <!-- Main Title -->
+    <text y="25" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="44" font-weight="800" fill="url(#textGrad)" letter-spacing="1.5" filter="url(#glow)">
+      Awesome Web Browser Preview
+    </text>
+    
+    <!-- Subtitle -->
+    <text y="65" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="20" font-weight="500" fill="#e2e8f0" letter-spacing="0.5">
+      Canary, Dev, Nightly &amp; Early-Access Browser Channels Ecosystem
+    </text>
+
+    <!-- Badges / Tags in SVG -->
+    <g transform="translate(0, 105)">
+      <rect x="-210" y="0" width="130" height="28" rx="14" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+      <text x="-145" y="18" font-family="sans-serif" font-size="12" font-weight="600" fill="#38bdf8" text-anchor="middle">⚡ CANARY</text>
+
+      <rect x="-65" y="0" width="130" height="28" rx="14" fill="#1e293b" stroke="#818cf8" stroke-width="1.5"/>
+      <text x="0" y="18" font-family="sans-serif" font-size="12" font-weight="600" fill="#818cf8" text-anchor="middle">🌙 NIGHTLY</text>
+
+      <rect x="80" y="0" width="130" height="28" rx="14" fill="#1e293b" stroke="#c084fc" stroke-width="1.5"/>
+      <text x="145" y="18" font-family="sans-serif" font-size="12" font-weight="600" fill="#c084fc" text-anchor="middle">🧪 DEV / BETA</text>
+    </g>
+  </g>
+</svg>
